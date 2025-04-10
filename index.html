@@ -1,18 +1,72 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Hello Simulation</title>
+  <meta charset="UTF-8">
+  <title>NavAids Simulations</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f7f9fc;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 0.5em;
+    }
+
+    p {
+      font-size: 1.2rem;
+      max-width: 600px;
+    }
+
+    button {
+      padding: 0.7em 1.5em;
+      font-size: 1rem;
+      border: none;
+      background-color: #0077cc;
+      color: white;
+      border-radius: 0.4em;
+      cursor: pointer;
+      margin-top: 1em;
+    }
+
+    button:hover {
+      background-color: #005fa3;
+    }
+
+    img {
+      margin-top: 2em;
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+  </style>
 </head>
 <body>
-  <h1>Hello, World!</h1>
-  <p id="message">This is my first simulation project page.</p>
+
+  <h1>NavAids Simulations</h1>
+  <p id="message">Welcome! This project will include interactive simulations to help teach navigational aid concepts.</p>
 
   <button onclick="changeMessage()">Click Me!</button>
 
+  <img src="antenna.png" alt="ILS Antenna" />
+
   <script>
     function changeMessage() {
-      document.getElementById("message").innerHTML = "Hi Amy :)!";
+      document.getElementById("message").innerText = "Hi Amy :)";
     }
   </script>
+
 </body>
 </html>
