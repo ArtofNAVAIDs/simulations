@@ -5,54 +5,49 @@
   <title>Localizer Simulation</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    html, body {
-      margin: 0;
-      padding: 0;
+    body {
       font-family: 'Inter', sans-serif;
       background-color: #f7f9fc;
-    }
-
-    body {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 2rem;
-      box-sizing: border-box;
+      margin: 0;
+      padding: 2em;
+      text-align: center;
     }
 
     h1 {
-      margin-top: 0;
       font-size: 2.5rem;
-      text-align: center;
+      margin-bottom: 0.5em;
     }
 
     p {
       font-size: 1.1rem;
       color: #555;
-      text-align: center;
       max-width: 700px;
-      margin-bottom: 2rem;
+      margin: 0 auto 2em;
     }
 
     .player-wrapper {
+      position: relative;
       width: 100%;
-      max-width: 1280px;
-      height: auto;
-      overflow: auto;
-      background-color: white;
+      max-width: 1600px;
+      padding-top: 75%; /* 4:3 aspect ratio = 600/800 = 75% */
+      margin: 0 auto;
       border-radius: 12px;
+      overflow: hidden;
       box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-      padding: 1rem;
+      background: white;
     }
 
     .player-wrapper canvas {
-      display: block;
-      transform: scale(1.6); /* Try 2.0 or more if needed */
-      transform-origin: top left;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100% !important;
+      height: 100% !important;
     }
 
     .back-link {
-      margin-top: 2rem;
+      display: inline-block;
+      margin-top: 2em;
       text-decoration: none;
       color: #0077cc;
       font-weight: bold;
@@ -66,34 +61,26 @@
 <body>
 
   <h1>Localizer Simulation</h1>
-  <p>This simulation demonstrates how localizer beam alignment affects signal reception. Use the controls in the simulation to observe RF pattern shifts.</p>
+  <p>This simulation shows how localizer beam alignment affects signal reception. Use the controls in the simulation to observe RF pattern shifts.</p>
 
   <div class="player-wrapper" id="flash-container">
-    <!-- Ruffle canvas will go here -->
+    <embed src="yourSim.swf" width="800" height="600">
   </div>
 
   <a class="back-link" href="../">← Back to Dashboard</a>
 
- <script src="ruffle/ruffle.js"></script>
-<script>
-  window.RufflePlayer = window.RufflePlayer || {};
-  window.addEventListener("load", () => {
-    const ruffle = window.RufflePlayer.newest();
-    const container = document.getElementById("flash-container");
+  <script src="ruffle/ruffle.js"></script>
+  <script>
+    window.RufflePlayer = window.RufflePlayer || {};
+    window.addEventListener("load", () => {
+      const ruffle = window.RufflePlayer.newest();
+      const container = document.getElementById("flash-container");
+      const player = ruffle.createPlayer();
+      container.innerHTML = "";
+      container.appendChild(player);
+      player.load("yourSim.swf");
+    });
+  </script>
 
-    const playerWrapper = document.createElement("div");
-    playerWrapper.style.transform = "scale(2)"; // 👈 Try 1.5, 2, etc.
-    playerWrapper.style.transformOrigin = "top left";
-    playerWrapper.style.width = "800px"; // match your SWF size
-    playerWrapper.style.height = "600px";
-    playerWrapper.style.overflow = "hidden";
-
-    const player = ruffle.createPlayer();
-    playerWrapper.appendChild(player);
-    container.innerHTML = "";
-    container.appendChild(playerWrapper);
-
-    player.load("Localizer.swf");
-  });
-</script>
-
+</body>
+</html>
