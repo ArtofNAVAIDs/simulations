@@ -1,4 +1,80 @@
-<script src="ruffle/ruffle.js"></script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Localizer Simulation</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: #f7f9fc;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem;
+      box-sizing: border-box;
+    }
+
+    h1 {
+      margin-top: 0;
+      font-size: 2.5rem;
+      text-align: center;
+    }
+
+    p {
+      font-size: 1.1rem;
+      color: #555;
+      text-align: center;
+      max-width: 700px;
+      margin-bottom: 2rem;
+    }
+
+    .player-wrapper {
+      width: 100%;
+      max-width: 1280px;
+      height: auto;
+      overflow: auto;
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      padding: 1rem;
+    }
+
+    .player-wrapper canvas {
+      display: block;
+      transform: scale(1.6); /* Try 2.0 or more if needed */
+      transform-origin: top left;
+    }
+
+    .back-link {
+      margin-top: 2rem;
+      text-decoration: none;
+      color: #0077cc;
+      font-weight: bold;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Localizer Simulation</h1>
+  <p>This simulation demonstrates how localizer beam alignment affects signal reception. Use the controls in the simulation to observe RF pattern shifts.</p>
+
+  <div class="player-wrapper" id="flash-container">
+    <!-- Ruffle canvas will go here -->
+  </div>
+
+  <a class="back-link" href="../">← Back to Dashboard</a>
+
+ <script src="ruffle/ruffle.js"></script>
 <script>
   window.RufflePlayer = window.RufflePlayer || {};
   window.addEventListener("load", () => {
