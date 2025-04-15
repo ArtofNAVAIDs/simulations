@@ -29,7 +29,58 @@
       position: relative;
       width: 100%;
       max-width: 1600px;
-      padding-top: 75%; /* 4:3 aspect ratio = 600/800 = 75% */
+      padding-top: 75%; /* 4:3 aspect ratio */
       margin: 0 auto;
       border-radius: 12px;
-      overflow: hidden
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      background: white;
+    }
+
+    .player-wrapper canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100% !important;
+      height: 100% !important;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-top: 2em;
+      text-decoration: none;
+      color: #0077cc;
+      font-weight: bold;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Localizer Simulation</h1>
+  <p>This simulation demonstrates how localizer beam alignment affects signal reception. Use the controls within the simulation to observe RF pattern shifts.</p>
+
+  <div class="player-wrapper" id="flash-container">
+    <embed src="Localizer.swf" width="800" height="600">
+  </div>
+
+  <a class="back-link" href="../">← Back to Dashboard</a>
+
+  <script src="ruffle/ruffle.js"></script>
+  <script>
+    window.RufflePlayer = window.RufflePlayer || {};
+    window.addEventListener("load", () => {
+      const ruffle = window.RufflePlayer.newest();
+      const container = document.getElementById("flash-container");
+      const player = ruffle.createPlayer();
+      container.innerHTML = "";
+      container.appendChild(player);
+      player.load("Localizer.swf");
+    });
+  </script>
+
+</body>
+</html>
