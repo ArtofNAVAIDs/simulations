@@ -10,6 +10,9 @@
       background-color: #f7f9fc;
       margin: 0;
       padding: 2em;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       text-align: center;
     }
 
@@ -22,32 +25,20 @@
       font-size: 1.1rem;
       color: #555;
       max-width: 700px;
-      margin: 0 auto 2em;
+      margin-bottom: 2rem;
     }
 
     .player-wrapper {
-      position: relative;
-      width: 100%;
-      max-width: 1600px;
-      padding-top: 75%; /* 4:3 aspect ratio */
-      margin: 0 auto;
+      width: 800px;
+      height: 600px;
+      background-color: white;
       border-radius: 12px;
       overflow: hidden;
       box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-      background: white;
-    }
-
-    .player-wrapper canvas {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100% !important;
-      height: 100% !important;
     }
 
     .back-link {
-      display: inline-block;
-      margin-top: 2em;
+      margin-top: 2rem;
       text-decoration: none;
       color: #0077cc;
       font-weight: bold;
@@ -61,11 +52,9 @@
 <body>
 
   <h1>Localizer Simulation</h1>
-  <p>This simulation demonstrates how localizer beam alignment affects signal reception. Use the controls within the simulation to observe RF pattern shifts.</p>
+  <p>This simulation demonstrates how localizer beam alignment affects signal reception. Use the controls in the simulation to observe RF pattern shifts.</p>
 
-  <div class="player-wrapper" id="flash-container">
-    <embed src="Localizer.swf" width="800" height="600">
-  </div>
+  <div class="player-wrapper" id="flash-container"></div>
 
   <a class="back-link" href="../">← Back to Dashboard</a>
 
