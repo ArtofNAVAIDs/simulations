@@ -1,10 +1,28 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Art of NavAids</title>
+  <meta charset="UTF-8">
+  <title>Localizer Simulation</title>
 </head>
 <body>
-  <h1>Localizer</h1>
-  <p>Coming soon...</p>
+  <h1>Localizer Simulation</h1>
+  <p>This simulation shows how RF behavior changes in a localizer setup.</p>
+
+  <div id="flash-container">
+    <embed src="yourSim.swf" width="800" height="600">
+  </div>
+
+  <script src="ruffle/ruffle.js"></script>
+  <script>
+    window.RufflePlayer = window.RufflePlayer || {};
+    window.addEventListener("load", () => {
+      const ruffle = window.RufflePlayer.newest();
+      const container = document.getElementById("flash-container");
+      const player = ruffle.createPlayer();
+      container.innerHTML = "";
+      container.appendChild(player);
+      player.load("Loacilzer.swf");
+    });
+  </script>
 </body>
 </html>
