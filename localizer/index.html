@@ -29,7 +29,7 @@
       position: relative;
       width: 100%;
       max-width: 1600px;
-      padding-top: 75%; /* 4:3 aspect ratio = 600/800 = 75% */
+      padding-top: 75%; /* 4:3 aspect ratio */
       margin: 0 auto;
       border-radius: 12px;
       overflow: hidden;
@@ -61,10 +61,10 @@
 <body>
 
   <h1>Localizer Simulation</h1>
-  <p>This simulation shows how localizer beam alignment affects signal reception. Use the controls in the simulation to observe RF pattern shifts.</p>
+  <p>This simulation demonstrates how localizer beam alignment affects signal reception. Use the controls within the simulation to observe RF pattern shifts.</p>
 
   <div class="player-wrapper" id="flash-container">
-    <embed src="yourSim.swf" width="800" height="600">
+    <embed src="Localizer.swf" width="800" height="600">
   </div>
 
   <a class="back-link" href="../">← Back to Dashboard</a>
@@ -78,7 +78,7 @@
       const player = ruffle.createPlayer();
       container.innerHTML = "";
       container.appendChild(player);
-      player.load("yourSim.swf");
+      player.load("Localizer.swf");
     });
   </script>
 
