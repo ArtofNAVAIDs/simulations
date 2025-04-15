@@ -5,52 +5,56 @@
   <title>Localizer Simulation</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    body {
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
       font-family: 'Inter', sans-serif;
       background-color: #f7f9fc;
-      margin: 0;
-      padding: 2em;
-      text-align: center;
+    }
+
+    body {
       display: flex;
       flex-direction: column;
       align-items: center;
+      justify-content: flex-start;
+      padding: 2rem;
+      box-sizing: border-box;
     }
 
     h1 {
+      margin-top: 0;
       font-size: 2.5rem;
-      margin-bottom: 0.5em;
+      text-align: center;
     }
 
     p {
       font-size: 1.1rem;
       color: #555;
+      text-align: center;
       max-width: 700px;
-      margin-bottom: 2em;
+      margin-bottom: 2rem;
     }
 
     .player-wrapper {
-      position: relative;
       width: 100%;
-      max-width: 1200px;
+      max-width: 1280px;
       aspect-ratio: 4 / 3;
+      position: relative;
+      background-color: #fff;
       border-radius: 12px;
       overflow: hidden;
-      background: white;
       box-shadow: 0 8px 20px rgba(0,0,0,0.1);
     }
 
-    .player-wrapper canvas,
-    .player-wrapper embed {
-      position: absolute;
-      top: 0;
-      left: 0;
+    .player-wrapper canvas {
       width: 100% !important;
       height: 100% !important;
-      border: none;
+      display: block;
     }
 
     .back-link {
-      margin-top: 2em;
+      margin-top: 2rem;
       text-decoration: none;
       color: #0077cc;
       font-weight: bold;
@@ -64,10 +68,10 @@
 <body>
 
   <h1>Localizer Simulation</h1>
-  <p>This simulation demonstrates how localizer beam alignment affects signal reception. Use the controls within the simulation to observe RF pattern shifts.</p>
+  <p>This simulation demonstrates how localizer beam alignment affects signal reception. Use the controls in the simulation to observe RF pattern shifts.</p>
 
   <div class="player-wrapper" id="flash-container">
-    <embed src="Localizer.swf">
+    <!-- The Ruffle canvas will be injected here -->
   </div>
 
   <a class="back-link" href="../">← Back to Dashboard</a>
