@@ -8,7 +8,6 @@
     html, body {
       margin: 0;
       padding: 0;
-      height: 100%;
       font-family: 'Inter', sans-serif;
       background-color: #f7f9fc;
     }
@@ -17,7 +16,6 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: flex-start;
       padding: 2rem;
       box-sizing: border-box;
     }
@@ -39,20 +37,18 @@
     .player-wrapper {
       width: 100%;
       max-width: 1280px;
-      aspect-ratio: 4 / 3;
+      height: auto;
+      overflow: auto;
       background-color: white;
       border-radius: 12px;
-      overflow: hidden;
       box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      padding: 1rem;
     }
 
     .player-wrapper canvas {
       display: block;
-      width: 100% !important;
-      height: 100% !important;
+      transform: scale(1.6); /* Try 2.0 or more if needed */
+      transform-origin: top left;
     }
 
     .back-link {
@@ -73,7 +69,7 @@
   <p>This simulation demonstrates how localizer beam alignment affects signal reception. Use the controls in the simulation to observe RF pattern shifts.</p>
 
   <div class="player-wrapper" id="flash-container">
-    <!-- Ruffle canvas goes here -->
+    <!-- Ruffle canvas will go here -->
   </div>
 
   <a class="back-link" href="../">← Back to Dashboard</a>
