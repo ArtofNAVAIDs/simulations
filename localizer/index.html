@@ -1,75 +1,188 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Localizer Simulation</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
   <style>
     body {
-      font-family: 'Inter', sans-serif;
-      background-color: #f7f9fc;
+      font-family: Arial, sans-serif;
       margin: 0;
-      padding: 2em;
+      background-color: #f4f4f4;
       display: flex;
       flex-direction: column;
-      align-items: center;
+      min-height: 100vh;
+    }
+
+    main {
+      flex: 1;
+      padding: 2rem;
       text-align: center;
     }
 
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.5em;
-    }
-
-    p {
-      font-size: 1.1rem;
-      color: #555;
-      max-width: 700px;
-      margin-bottom: 2rem;
-    }
-
-    .player-wrapper {
-      width: 800px;
-      height: 600px;
-      background-color: white;
-      border-radius: 12px;
+    .ruffle-player {
+      max-width: 960px;
+      margin: 0 auto;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+      border-radius: 8px;
       overflow: hidden;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
     }
 
-    .back-link {
-      margin-top: 2rem;
-      text-decoration: none;
-      color: #0077cc;
+    /* Modal styles */
+    .modal {
+      display: block; /* Show on page load */
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.6);
+    }
+
+    .modal-content {
+      background-color: white;
+      margin: 15% auto;
+      padding: 20px;
+      border-radius: 8px;
+      width: 90%;
+      max-width: 400px;
+      text-align: center;
+    }
+
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
       font-weight: bold;
+      cursor: pointer;
     }
 
-    .back-link:hover {
-      text-decoration: underline;
+    .close:hover {
+      color: black;
     }
+
+    footer {
+      background-color: #f4f4f4;
+      color: #333;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      border-top: 1px solid #ccc;
+    }
+
+    .social-icons {
+      margin-top: 0.5rem;
+    }
+
+    .social-icons a {
+      color: white;
+      margin: 0 0.5rem;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .social-icons svg {
+      width: 24px;
+      height: 24px;
+      vertical-align: middle;
+      fill: #cc0000;
+      transition: fill 0.3s;
+    }
+
+    .social-icons a:hover svg {
+      fill: red;
+    }
+
+    .footer-note {
+      margin-top: 0.5rem;
+      font-size: 0.85rem;
+      color: #666;
+    }
+
+.sim-title {
+  font-size: 2.5rem;
+  color: #111;
+  margin-bottom: 0.5rem;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+.sim-subtext {
+  font-size: 1.1rem;
+  color: #444;
+  max-width: 800px;
+  margin: 0 auto 2rem auto;
+  line-height: 1.6;
+}
+
+.back-button {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: #6c757d;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.back-button:hover {
+  background-color: #5a6268;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
   </style>
 </head>
 <body>
 
-  <h1>Localizer Simulation</h1>
-  <p>This simulation demonstrates how localizer beam alignment affects signal reception. Use the controls in the simulation to observe RF pattern shifts.</p>
+<!-- Modal -->
+<div id="fullscreenModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="document.getElementById('fullscreenModal').style.display='none'">&times;</span>
+    <h3>For best viewing right-click on the simulation and select "Enter Fullscreen".</h3>
+      </div>
+</div>
 
-  <div class="player-wrapper" id="flash-container"></div>
+<main>
+  <h2 class="sim-title">Localizer Simulation</h2>
+  <p class="sim-subtext">
+    This simulation demonstrates how localizer power, modulation, and phase effect the localizer signal. Knobs and pots are based on the Mark 1 system. The blue rotary knobs do not function due to flash conversion errors but SBO can be adusted by the "SBO Pwr" pot. SBO phase can be toggled using the radio buttons to understand the concepts.
+  </p>
+  <div class="ruffle-player">
+    <embed src="Localizer.swf" width="100%" height="600" type="application/x-shockwave-flash" />
+  </div>
 
-  <a class="back-link" href="../">← Back to Dashboard</a>
+  <!-- Back link below the simulation -->
+  <div style="margin-top: 2rem;">
+  <a href="../" class="back-button">← Back to Dashboard</a>
+</div>
+</main>
 
-  <script src="ruffle/ruffle.js"></script>
-  <script>
-    window.RufflePlayer = window.RufflePlayer || {};
-    window.addEventListener("load", () => {
-      const ruffle = window.RufflePlayer.newest();
-      const container = document.getElementById("flash-container");
-      const player = ruffle.createPlayer();
-      container.innerHTML = "";
-      container.appendChild(player);
-      player.load("Localizer.swf");
-    });
-  </script>
+
+<footer>
+  © 2025 Art of NAVAIDs.
+  <div class="social-icons">
+    <a href="https://www.youtube.com/artofnavaids" target="_blank" aria-label="YouTube">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+        <path d="M549.7 124.1c-6.3-23.7-24.9-42.4-48.5-48.7C465.6 64 288 64 288 64s-177.6 0-213.2 11.4c-23.6 6.3-42.2 25-48.5 48.7C16 160.7 16 256 16 256s0 95.3 10.3 131.9c6.3 23.7 24.9 42.4 48.5 48.7C110.4 448 288 448 288 448s177.6 0 213.2-11.4c23.6-6.3 42.2-25 48.5-48.7C560 351.3 560 256 560 256s0-95.3-10.3-131.9zM232 334V178l142 78-142 78z"/>
+      </svg>
+    </a>
+  </div>
+  <p class="footer-note">
+    This site is provided for public educational use. All simulations and materials are for informational purposes only and do not represent official FAA or DoD guidance.
+  </p>
+</footer>
+
+<script>
+  // Auto-close modal after 7 seconds
+  setTimeout(() => {
+    const modal = document.getElementById('fullscreenModal');
+    if (modal) modal.style.display = 'none';
+  }, 7000);
+</script>
 
 </body>
 </html>
