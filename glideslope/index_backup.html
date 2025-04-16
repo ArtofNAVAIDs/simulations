@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Glide Slope Simulation</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f7f9fc;
+      margin: 0;
+      padding: 2em;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5em;
+    }
+
+    p {
+      font-size: 1.1rem;
+      color: #555;
+      max-width: 700px;
+      margin-bottom: 2rem;
+    }
+
+    .player-wrapper {
+      width: 800px;
+      height: 600px;
+      background-color: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+
+    .back-link {
+      margin-top: 2rem;
+      text-decoration: none;
+      color: #0077cc;
+      font-weight: bold;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Glide Slope Simulation</h1>
+  <p>This simulation demonstrates the Capture Effect Glides Slope. Use the controls in the simulation to observe RF pattern shifts and observed indications from the aircraft. Other antenna types can be simulated such as Null Reference or Sideband Reference.</p>
+
+  <div class="player-wrapper" id="flash-container"></div>
+
+  <a class="back-link" href="../">← Back to Dashboard</a>
+
+  <script src="ruffle/ruffle.js"></script>
+  <script>
+    window.RufflePlayer = window.RufflePlayer || {};
+    window.addEventListener("load", () => {
+      const ruffle = window.RufflePlayer.newest();
+      const container = document.getElementById("flash-container");
+      const player = ruffle.createPlayer();
+      container.innerHTML = "";
+      container.appendChild(player);
+      player.load("Glide_Slope.swf");
+    });
+  </script>
+
+
+<!-- Footer -->
+    <footer style="background-color: #f4f4f4; color: #333; text-align: center; padding: 1rem; font-size: 0.9rem; border-top: 1px solid #ccc;">
+      © 2025 Art of NAVAIDs.
+      <div class="social-icons" style="margin-top: 0.5rem;">
+        <a href="https://www.youtube.com/artofnavaids" target="_blank" aria-label="YouTube" style="display: inline-block;">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" style="width: 24px; height: 24px; vertical-align: middle; fill: #cc0000; transition: fill 0.3s;">
+            <path d="M549.7 124.1c-6.3-23.7-24.9-42.4-48.5-48.7C465.6 64 288 64 288 64s-177.6 0-213.2 11.4c-23.6 6.3-42.2 25-48.5 48.7C16 160.7 16 256 16 256s0 95.3 10.3 131.9c6.3 23.7 24.9 42.4 48.5 48.7C110.4 448 288 448 288 448s177.6 0 213.2-11.4c23.6-6.3 42.2-25 48.5-48.7C560 351.3 560 256 560 256s0-95.3-10.3-131.9zM232 334V178l142 78-142 78z"/>
+          </svg>
+        </a>
+      </div>
+      <p style="margin-top: 0.5rem; font-size: 0.85rem; color: #666;">
+        This site is provided for public educational use. All simulations and materials are for informational purposes only and do not represent official FAA or DoD guidance.
+      </p>
+    </footer>
+
+  </div>
+</body>
+</html>
+
