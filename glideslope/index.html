@@ -117,6 +117,23 @@
   line-height: 1.6;
 }
 
+.back-button {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: #6c757d;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.back-button:hover {
+  background-color: #5a6268;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
   </style>
 </head>
 <body>
@@ -125,9 +142,8 @@
 <div id="fullscreenModal" class="modal">
   <div class="modal-content">
     <span class="close" onclick="document.getElementById('fullscreenModal').style.display='none'">&times;</span>
-    <h3>For Best Viewing</h3>
-    <p>Right-click on the simulation and select <strong>Enter Fullscreen</strong>.</p>
-  </div>
+    <h3>For best viewing right-click on the simulation and select "Enter Fullscreen".</h3>
+      </div>
 </div>
 
 <main>
@@ -141,19 +157,8 @@
 
   <!-- Back link below the simulation -->
   <div style="margin-top: 2rem;">
-    <a href="../" style="
-      display: inline-block;
-      padding: 0.5rem 1rem;
-      background-color: #6c757d;
-      color: white;
-      text-decoration: none;
-      border-radius: 6px;
-      font-size: 1rem;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-      transition: background-color 0.3s ease;">
-      ← Back to Simulations
-    </a>
-  </div>
+  <a href="../" class="back-button">← Back to Dashboard</a>
+</div>
 </main>
 
 
