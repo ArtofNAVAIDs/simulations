@@ -3,125 +3,185 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Simulation Dashboard</title>
+  <title>NAVAID Interactive Tools</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f5f5f5;
+    html, body {
+      height: 100%;
       margin: 0;
-      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
     }
 
-    h1 {
+    .wrapper {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      background: url('images/AoN_banner.jpg') center/cover no-repeat;
+      height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       text-align: center;
-      padding: 20px;
-      color: #003366;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+      color: white;
+      text-shadow: 4px 4px 12px rgba(0, 0, 0, 0.7);
     }
 
-    .grid-container {
+    header h1 {
+      margin: 0;
+      font-size: 3rem;
+    }
+
+    header p {
+      font-size: 1.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .main-content {
+      flex: 1;
+      padding: 2rem;
+    }
+
+    .main-content h2 {
+      text-align: center;
+      padding-top: 1rem;
+    }
+
+    .card-container {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 20px;
-      padding: 20px;
+      gap: 2rem;
+      padding-top: 2rem;
     }
 
-    .grid-item {
+    .card {
       background-color: white;
-      border-radius: 10px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      width: 250px;
       text-align: center;
-      width: 200px;
+      padding: 1.5rem;
       transition: transform 0.2s;
       text-decoration: none;
-      color: inherit;
+      color: black;
     }
 
-    .grid-item:hover {
-      transform: scale(1.05);
+    .card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
     }
 
-    .grid-item h3 {
-      margin-top: 0;
+    .card h3 {
+      margin-bottom: 1rem;
     }
 
     .thumb-img {
       width: 100%;
-      max-height: 100px;
+      max-height: 120px;
       object-fit: cover;
       border-radius: 8px;
       margin-top: 10px;
     }
 
     footer {
+      background-color: #1b263b;
+      color: white;
       text-align: center;
-      padding: 20px;
-      background-color: #003366;
-      color: white;
-      margin-top: 40px;
+      padding: 1rem;
+      font-size: 0.9rem;
     }
 
-    .footer-icons a {
-      margin: 0 10px;
+    .social-icons {
+      margin-top: 0.5rem;
+    }
+
+    .social-icons a {
       color: white;
+      margin: 0 0.5rem;
       text-decoration: none;
+      display: inline-block;
     }
 
-    .footer-icons svg {
-      width: 20px;
-      height: 20px;
+    .social-icons svg {
+      width: 24px;
+      height: 24px;
       vertical-align: middle;
+      fill: white;
+      transition: fill 0.3s;
+    }
+
+    .social-icons a:hover svg {
+      fill: red;
     }
   </style>
 </head>
 <body>
+  <div class="wrapper">
 
-  <h1>NAVAID Simulations</h1>
+    <!-- Banner -->
+    <header>
+      <div>
+        <h1>NAVAID Interactive Tools</h1>
+        <p>Explore RF Patterns, Simulations, and Navigation Concepts</p>
+      </div>
+    </header>
 
-  <div class="grid-container">
-    <a class="grid-item" href="localizer/">
-      <h3>Localizer</h3>
-      <img src="images/localizer_thumb.jpg" alt="Localizer thumbnail" class="thumb-img">
-    </a>
+    <!-- Main Content -->
+    <main class="main-content">
+      <h2>Select a Simulation</h2>
+      <div class="card-container">
 
-    <a class="grid-item" href="localizer-pattern/">
-      <h3>Localizer Antenna Pattern</h3>
-      <img src="images/localizer_pattern_thumb.jpg" alt="Localizer Antenna Pattern thumbnail" class="thumb-img">
-    </a>
+        <a href="localizer/" class="card">
+          <h3>Localizer</h3>
+          <img src="images/localizer_thumb.jpg" alt="Localizer thumbnail" class="thumb-img">
+        </a>
 
-    <a class="grid-item" href="glideslope/">
-      <h3>Glide Slope</h3>
-      <img src="images/glideslope_thumb.jpg" alt="Glide Slope thumbnail" class="thumb-img">
-    </a>
+        <a href="localizer-pattern/" class="card">
+          <h3>Localizer Antenna Pattern</h3>
+          <img src="images/localizer_pattern_thumb.jpg" alt="Localizer Pattern thumbnail" class="thumb-img">
+        </a>
 
-    <a class="grid-item" href="tacan/">
-      <h3>TACAN</h3>
-      <img src="images/tacan_thumb.jpg" alt="TACAN thumbnail" class="thumb-img">
-    </a>
+        <a href="glideslope/" class="card">
+          <h3>Glide Slope</h3>
+          <img src="images/glideslope_thumb.jpg" alt="Glide Slope thumbnail" class="thumb-img">
+        </a>
 
-    <a class="grid-item" href="resources/">
-      <h3>Additional Resources</h3>
-      <img src="images/resources_thumb.jpg" alt="Resources thumbnail" class="thumb-img">
-    </a>
+        <a href="tacan/" class="card">
+          <h3>TACAN</h3>
+          <img src="images/tacan_thumb.jpg" alt="TACAN thumbnail" class="thumb-img">
+        </a>
 
-    <a class="grid-item" href="about/">
-      <h3>About</h3>
-      <img src="images/about_thumb.jpg" alt="About thumbnail" class="thumb-img">
-    </a>
+        <a href="resources/" class="card">
+          <h3>Additional Resources</h3>
+          <img src="images/resources_thumb.jpg" alt="Resources thumbnail" class="thumb-img">
+        </a>
+
+        <a href="about/" class="card">
+          <h3>About</h3>
+          <img src="images/about_thumb.jpg" alt="About thumbnail" class="thumb-img">
+        </a>
+
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer style="background-color: #f4f4f4; color: #333; text-align: center; padding: 1rem; font-size: 0.9rem; border-top: 1px solid #ccc;">
+      © 2025 Art of NAVAIDs.
+      <div class="social-icons" style="margin-top: 0.5rem;">
+        <a href="https://www.youtube.com/artofnavaids" target="_blank" aria-label="YouTube" style="display: inline-block;">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" style="width: 24px; height: 24px; vertical-align: middle; fill: #cc0000; transition: fill 0.3s;">
+            <path d="M549.7 124.1c-6.3-23.7-24.9-42.4-48.5-48.7C465.6 64 288 64 288 64s-177.6 0-213.2 11.4c-23.6 6.3-42.2 25-48.5 48.7C16 160.7 16 256 16 256s0 95.3 10.3 131.9c6.3 23.7 24.9 42.4 48.5 48.7C110.4 448 288 448 288 448s177.6 0 213.2-11.4c23.6-6.3 42.2-25 48.5-48.7C560 351.3 560 256 560 256s0-95.3-10.3-131.9zM232 334V178l142 78-142 78z"/>
+          </svg>
+        </a>
+      </div>
+      <p style="margin-top: 0.5rem; font-size: 0.85rem; color: #666;">
+        This site is provided for public educational use. All simulations and materials are for informational purposes only and do not represent official FAA or DoD guidance.
+      </p>
+    </footer>
+
   </div>
-
-  <footer>
-    <p>&copy; 2024 FAA NAVAID Interactive Tools. For public educational use only.</p>
-    <div class="footer-icons">
-      <a href="https://www.youtube.com/@yourchannel" target="_blank" aria-label="YouTube">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a2.999 2.999 0 0 0-2.116-2.12C19.638 3.5 12 3.5 12 3.5s-7.638 0-9.382.566a2.999 2.999 0 0 0-2.116 2.12A29.988 29.988 0 0 0 0 12a29.988 29.988 0 0 0 .502 5.814 2.999 2.999 0 0 0 2.116 2.12C4.362 20.5 12 20.5 12 20.5s7.638 0 9.382-.566a2.999 2.999 0 0 0 2.116-2.12A29.988 29.988 0 0 0 24 12a29.988 29.988 0 0 0-.502-5.814zM9.75 15.02V8.98l6.26 3.02-6.26 3.02z"/></svg>
-      </a>
-    </div>
-  </footer>
-
 </body>
 </html>
-
-
