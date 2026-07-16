@@ -159,26 +159,38 @@
 .sim-subtext {
   font-size: 1.1rem;
   color: #444;
-  max-width: 800px;
-  margin: 0 auto 2rem auto;
   line-height: 1.6;
+  margin: 0 0 0.75rem 0;
 }
 
-.back-button {
-  display: inline-block;
-  padding: 0.5rem 1rem;
-  background-color: #6c757d;
-  color: white;
-  text-decoration: none;
-  border-radius: 6px;
-  font-size: 1rem;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
-}
+    .sim-subtext:last-child {
+      margin-bottom: 0;
+    }
 
-.back-button:hover {
-  background-color: #5a6268;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    .text-panel {
+      max-width: 960px;
+      margin: 0 auto 2rem auto;
+      padding: 1rem 1.25rem;
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      max-height: 220px;
+      overflow-y: auto;
+      text-align: left;
+    }
+
+    .back-button {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background-color: #6c757d;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    }
 }
 
   </style>
@@ -195,24 +207,27 @@
 
 <main>
   <h2 class="sim-title">Localizer Simulation</h2>
-  <div style="background-color: #4a4a4a; padding: 0.75rem 1.5rem; border-radius: 8px; display: inline-block; margin: 1rem auto; font-size: 1rem; color: white;">
-    Site best viewed on desktop
+  <div class="text-panel">
+    <p class="sim-subtext">
+      This simulation demonstrates how Localizer power, modulation, and phase effect the Localizer signal. Knobs and pots are based on the Mark 1 system. The blue rotary knobs do not function due to Flash Player emulation limitations.
+    <br>
+    </p>
+    <p class="sim-subtext">
+      However, SBO can be adusted with the "SBO Pwr" pot. SBO phase can be adjusted in fixed increments (30 or 90 degrees) using the radio buttons.
+    <br>
+    </p>
+    <p class="sim-subtext">
+      This is a great tool to visualize the relationship of power and width DDM at various observation points. Your observation point can be adjusted using the arrows above the Localizer radiation pattern.
+    <br>
+    </p>
+    <p class="sim-subtext">
+      Also, make note of the CSB (red) and SBO (green) vectors, and how they combine in space to create the composite vectors in blue.
+    <br>
+    </p>
+    <p class="sim-subtext">
+      Finally, apply 90 degrees of SBO phase with the radio buttons (either advanced or delayed) to see why 0.000 DDM occurs throughout the pattern in the quadrature condition (keep an eye on those blue vectors).
+    </p>
   </div>
-  <p class="sim-subtext">
-    This simulation demonstrates how Localizer power, modulation, and phase effect the Localizer signal. Knobs and pots are based on the Mark 1 system. The blue rotary knobs do not function due to Flash Player emulation limitations.
-  </p>
-  <p class="sim-subtext">
-    However, SBO can be adusted with the "SBO Pwr" pot. SBO phase can be adjusted in fixed increments (30 or 90 degrees) using the radio buttons.
-  </p>
-  <p class="sim-subtext">
-    This is a great tool to visualize the relationship of power and width DDM at various observation points. Your observation point can be adjusted using the arrows above the Localizer radiation pattern.
-  </p>
-  <p class="sim-subtext">
-    Also, make note of the CSB (red) and SBO (green) vectors, and how they combine in space to create the composite vectors in blue.
-  </p>
-  <p class="sim-subtext">
-    Finally, apply 90 degrees of SBO phase with the radio buttons (either advanced or delayed) to see why 0.000 DDM occurs throughout the pattern in the quadrature condition (keep an eye on those blue vectors).
-  </p>
 
   <div class="ruffle-player">
     <embed src="Localizer.swf" width="100%" height="600" type="application/x-shockwave-flash" />
@@ -238,7 +253,7 @@
 
 <div id="aboutModal" class="modal" aria-hidden="true">
   <div class="modal-content" role="dialog" aria-modal="true">
-    <button class="modal-close" aria-label="Close About">×</button>
+    <button class="modal-close" aria-label="Close About">X</button>
     <div style="text-align: center; margin-bottom: 1.5rem;">
       <img src="../images/logo.png" alt="Art of NAVAIDs Logo" style="max-width: 100px; height: auto;">
     </div>
