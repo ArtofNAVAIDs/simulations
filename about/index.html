@@ -1,10 +1,160 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Art of NavAids</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About - Art of NavAids</title>
+  <link rel="icon" type="image/png" href="../images/logo.png">
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+    }
+
+    .wrapper {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    main {
+      flex: 1;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    footer {
+      background-color: #f4f4f4;
+      color: #333;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      border-top: 1px solid #ccc;
+    }
+
+    .footer-row {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .footer-separator {
+      width: 1px;
+      height: 1rem;
+      background-color: #999;
+      display: inline-block;
+    }
+
+    .footer-link a {
+      color: #333;
+      text-decoration: none;
+      font-weight: normal;
+    }
+
+    .footer-link a:hover {
+      text-decoration: underline;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+
+    .modal.active {
+      display: flex;
+    }
+
+    .modal-content {
+      background: white;
+      border-radius: 10px;
+      max-width: 480px;
+      width: 100%;
+      padding: 1.5rem;
+      position: relative;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 0.75rem;
+      right: 0.75rem;
+      background: transparent;
+      border: none;
+      font-size: 1.25rem;
+      cursor: pointer;
+      color: #333;
+    }
+
+    .modal-content h3 {
+      margin-top: 0;
+    }
+  </style>
 </head>
 <body>
-  <h1>About</h1>
-  <p>Coming soon...</p>
+  <div class="wrapper">
+    <main>
+      <h1>About Art of NAVAIDs</h1>
+      <p>Coming soon...</p>
+    </main>
+
+    <footer>
+      <div class="footer-row">
+        <span>© 2026 Art of NAVAIDs</span>
+        <span class="footer-separator" aria-hidden="true"></span>
+        <span class="footer-link"><a href="#" id="aboutLink" style="color: inherit;">About</a></span>
+      </div>
+      <p style="margin-top: 0.5rem; font-size: 0.85rem; color: #666;">
+        This site is provided for public educational use. All simulations and materials are for informational purposes only and do not represent official FAA or DoD guidance.
+      </p>
+    </footer>
+
+    <div id="aboutModal" class="modal" aria-hidden="true">
+      <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="aboutModalTitle">
+        <button class="modal-close" aria-label="Close About">×</button>
+        <h3 id="aboutModalTitle">About Art of NAVAIDs</h3>
+        <p style="text-align: center;">Art of NAVAID's delivers technical training for electronics technicians maintaining ground-based navigation systems.</p>
+        <p style="text-align: center;">The simulations seen here were created by Carl Rocco in Adobe Flash software which is now discontinued. This site serves to preserve these programs using an open source Flash Player emulator.</p>
+        <p style="text-align: center;">artofnavaids@duck.com</p>
+      </div>
+    </div>
+
+    <script>
+      const aboutLink = document.getElementById('aboutLink');
+      const aboutModal = document.getElementById('aboutModal');
+      const modalClose = aboutModal.querySelector('.modal-close');
+
+      function openModal(event) {
+        event.preventDefault();
+        aboutModal.classList.add('active');
+        aboutModal.setAttribute('aria-hidden', 'false');
+      }
+
+      function closeModal() {
+        aboutModal.classList.remove('active');
+        aboutModal.setAttribute('aria-hidden', 'true');
+      }
+
+      aboutLink.addEventListener('click', openModal);
+      modalClose.addEventListener('click', closeModal);
+      aboutModal.addEventListener('click', (event) => {
+        if (event.target === aboutModal) {
+          closeModal();
+        }
+      });
+    </script>
+  </div>
 </body>
 </html>

@@ -30,16 +30,51 @@
     }
 
     /* Modal styles */
+    .footer-row {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .footer-separator {
+      width: 1px;
+      height: 1rem;
+      background-color: #999;
+      display: inline-block;
+    }
+
+    .footer-link a {
+      text-decoration: none;
+    }
+
+    .footer-link a:hover {
+      text-decoration: underline;
+    }
+
     .modal {
-      display: block; /* Show on page load */
+      display: none;
       position: fixed;
       z-index: 1000;
       left: 0;
       top: 0;
       width: 100%;
       height: 100%;
-      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.6);
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+
+    .modal.active {
+      display: flex;
+    }
+
+    #fullscreenModal {
+      display: block; /* Show on page load */
       background-color: rgba(0,0,0,0.6);
+      overflow: auto;
     }
 
     .modal-content {
@@ -162,19 +197,26 @@
 </main>
 
 
-<footer>
-  © 2025 Art of NAVAIDs.
-  <div class="social-icons">
-    <a href="https://www.youtube.com/artofnavaids" target="_blank" aria-label="YouTube">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-        <path d="M549.7 124.1c-6.3-23.7-24.9-42.4-48.5-48.7C465.6 64 288 64 288 64s-177.6 0-213.2 11.4c-23.6 6.3-42.2 25-48.5 48.7C16 160.7 16 256 16 256s0 95.3 10.3 131.9c6.3 23.7 24.9 42.4 48.5 48.7C110.4 448 288 448 288 448s177.6 0 213.2-11.4c23.6-6.3 42.2-25 48.5-48.7C560 351.3 560 256 560 256s0-95.3-10.3-131.9zM232 334V178l142 78-142 78z"/>
-      </svg>
-    </a>
+<footer style="background-color: #f4f4f4; color: #333; text-align: center; padding: 1rem; font-size: 0.9rem; border-top: 1px solid #ccc;">
+  <div class="footer-row">
+    <span>© 2026 Art of NAVAIDs</span>
+    <span class="footer-separator" aria-hidden="true"></span>
+    <span class="footer-link"><a href="#" id="aboutLink" style="font-weight: normal; color: inherit; text-decoration: none;">About</a></span>
   </div>
-  <p class="footer-note">
+  <p style="margin-top: 0.5rem; font-size: 0.85rem; color: #666;">
     This site is provided for public educational use. All simulations and materials are for informational purposes only and do not represent official FAA or DoD guidance.
   </p>
 </footer>
+
+<div id="aboutModal" class="modal" aria-hidden="true">
+  <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="aboutModalTitle">
+    <button class="modal-close" aria-label="Close About">×</button>
+    <h3 id="aboutModalTitle">About Art of NAVAIDs</h3>
+    <p style="text-align: center;">Art of NAVAID's delivers technical training for electronics technicians maintaining ground-based navigation systems.</p>
+    <p style="text-align: center;">The simulations seen here were created by Carl Rocco in Adobe Flash software which is now discontinued. This site serves to preserve these programs using an open source Flash Player emulator.</p>
+    <p style="text-align: center;">artofnavaids@duck.com</p>
+  </div>
+</div>
 
 <script>
   // Auto-close modal after 7 seconds
@@ -182,6 +224,30 @@
     const modal = document.getElementById('fullscreenModal');
     if (modal) modal.style.display = 'none';
   }, 7000);
+
+  // About modal functionality
+  const aboutLink = document.getElementById('aboutLink');
+  const aboutModal = document.getElementById('aboutModal');
+  const modalClose = aboutModal.querySelector('.modal-close');
+
+  function openModal(event) {
+    event.preventDefault();
+    aboutModal.classList.add('active');
+    aboutModal.setAttribute('aria-hidden', 'false');
+  }
+
+  function closeModal() {
+    aboutModal.classList.remove('active');
+    aboutModal.setAttribute('aria-hidden', 'true');
+  }
+
+  aboutLink.addEventListener('click', openModal);
+  modalClose.addEventListener('click', closeModal);
+  aboutModal.addEventListener('click', (event) => {
+    if (event.target === aboutModal) {
+      closeModal();
+    }
+  });
 </script>
 
 </body>
