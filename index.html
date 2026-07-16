@@ -116,6 +116,77 @@
     .social-icons a:hover svg {
       fill: red;
     }
+
+    .footer-row {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .footer-separator {
+      width: 1px;
+      height: 1rem;
+      background-color: #999;
+      display: inline-block;
+    }
+
+    .footer-link {
+      font-weight: bold;
+    }
+
+    .footer-link a {
+      color: #1b263b;
+      text-decoration: none;
+    }
+
+    .footer-link a:hover {
+      text-decoration: underline;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+
+    .modal.active {
+      display: flex;
+    }
+
+    .modal-content {
+      background: white;
+      border-radius: 10px;
+      max-width: 480px;
+      width: 100%;
+      padding: 1.5rem;
+      position: relative;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 0.75rem;
+      right: 0.75rem;
+      background: transparent;
+      border: none;
+      font-size: 1.25rem;
+      cursor: pointer;
+      color: #333;
+    }
+
+    .modal-content h3 {
+      margin-top: 0;
+    }
   </style>
 </head>
 <body>
@@ -159,17 +230,16 @@
           <img src="images/resources_thumb.jpg" alt="Resources thumbnail" class="thumb-img">
         </a>
 
-        <a href="about/" class="card">
-          <h3>About</h3>
-          <img src="images/about_thumb.jpg" alt="About thumbnail" class="thumb-img">
-        </a>
-
       </div>
     </main>
 
     <!-- Footer -->
     <footer style="background-color: #f4f4f4; color: #333; text-align: center; padding: 1rem; font-size: 0.9rem; border-top: 1px solid #ccc;">
-      © 2025 Art of NAVAIDs.
+      <div class="footer-row">
+        <span>© 2026 Art of NAVAIDs</span>
+        <span class="footer-separator" aria-hidden="true"></span>
+        <span class="footer-link"><a href="#" id="aboutLink" style="font-weight: normal; color: inherit; text-decoration: none;">About</a></span>
+      </div>
       <div class="social-icons" style="margin-top: 0.5rem;">
         <a href="https://www.youtube.com/artofnavaids" target="_blank" aria-label="YouTube" style="display: inline-block;">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" style="width: 24px; height: 24px; vertical-align: middle; fill: #cc0000; transition: fill 0.3s;">
@@ -181,6 +251,43 @@
         This site is provided for public educational use. All simulations and materials are for informational purposes only and do not represent official FAA or DoD guidance.
       </p>
     </footer>
+
+    <div id="aboutModal" class="modal" aria-hidden="true">
+      <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="aboutModalTitle">
+        <button class="modal-close" aria-label="Close About">×</button>
+        <h3 id="aboutModalTitle">About Art of NAVAIDs</h3>
+        <p style="text-align: center;">Art of NAVAID's delivers technical training for electronics technicians maintaining ground-based navigation systems.</p>
+         <p style="text-align: center;">The simulations seen here were created by Carl Rocco in Adobe Flash software which is now discontinued. This site serves to preserve these 
+          programs using an open source Flash Player emulator.</p>
+          
+        <p style="text-align: center;">artofnavaids@duck.com</p>
+      </div>
+    </div>
+
+    <script>
+      const aboutLink = document.getElementById('aboutLink');
+      const aboutModal = document.getElementById('aboutModal');
+      const modalClose = aboutModal.querySelector('.modal-close');
+
+      function openModal(event) {
+        event.preventDefault();
+        aboutModal.classList.add('active');
+        aboutModal.setAttribute('aria-hidden', 'false');
+      }
+
+      function closeModal() {
+        aboutModal.classList.remove('active');
+        aboutModal.setAttribute('aria-hidden', 'true');
+      }
+
+      aboutLink.addEventListener('click', openModal);
+      modalClose.addEventListener('click', closeModal);
+      aboutModal.addEventListener('click', (event) => {
+        if (event.target === aboutModal) {
+          closeModal();
+        }
+      });
+    </script>
 
   </div>
 </body>
