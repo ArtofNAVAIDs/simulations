@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/download/527bb3e85-242a8b488/sitemap.xsl"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <url>
+       <loc>https://www.artofnavaids.com/</loc>
+       <lastmod>2026-07-17T14:32:51+00:00</lastmod>
+       <changefreq>daily</changefreq>
+       <priority>1.0000</priority>
+  </url>
+  <url>
+       <loc>https://www.artofnavaids.com/localizer/</loc>
+       <lastmod>2026-07-17T14:32:51+00:00</lastmod>
+       <changefreq>daily</changefreq>
+       <priority>0.8000</priority>
+  </url>
+  <url>
+       <loc>https://www.artofnavaids.com/localizer-pattern/</loc>
+       <lastmod>2026-07-17T14:32:51+00:00</lastmod>
+       <changefreq>daily</changefreq>
+       <priority>0.8000</priority>
+  </url>
+  <url>
+       <loc>https://www.artofnavaids.com/glideslope/</loc>
+       <lastmod>2026-07-17T14:32:51+00:00</lastmod>
+       <changefreq>daily</changefreq>
+       <priority>0.8000</priority>
+  </url>
+  <url>
+       <loc>https://www.artofnavaids.com/tacan/</loc>
+       <lastmod>2026-07-17T14:32:51+00:00</lastmod>
+       <changefreq>daily</changefreq>
+       <priority>0.8000</priority>
+  </url>
+  <url>
+       <loc>https://www.artofnavaids.com/resources/</loc>
+       <lastmod>2026-07-17T14:32:51+00:00</lastmod>
+       <changefreq>daily</changefreq>
+       <priority>0.8000</priority>
+  </url>
+  <url>
+       <loc>https://www.artofnavaids.com/resources/AoN_FlightCheckInfoGraphic.pdf</loc>
+       <lastmod>2026-07-17T14:32:51+00:00</lastmod>
+       <changefreq>daily</changefreq>
+       <priority>0.6400</priority>
+  </url>
+  <url>
+       <loc>https://www.artofnavaids.com/resources/AoN_SectorsZonesPoints_v3.pdf</loc>
+       <lastmod>2026-07-17T14:32:51+00:00</lastmod>
+       <changefreq>daily</changefreq>
+       <priority>0.6400</priority>
+  </url>
+  <url>
+       <loc>https://www.artofnavaids.com/resources/AoN_PhaserDiagram.pdf</loc>
+       <lastmod>2026-07-17T14:32:51+00:00</lastmod>
+       <changefreq>daily</changefreq>
+       <priority>0.6400</priority>
+  </url>
+</urlset>
