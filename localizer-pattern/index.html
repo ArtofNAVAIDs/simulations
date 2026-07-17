@@ -159,10 +159,26 @@
 .sim-subtext {
   font-size: 1.1rem;
   color: #444;
-  max-width: 800px;
-  margin: 0 auto 2rem auto;
   line-height: 1.6;
+  margin: 0 0 0.75rem 0;
 }
+
+    .sim-subtext:last-child {
+      margin-bottom: 0;
+    }
+
+    .text-panel {
+      max-width: 960px;
+      margin: 0 auto 2rem auto;
+      padding: 1rem 1.25rem;
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      max-height: 220px;
+      overflow-y: auto;
+      text-align: left;
+    }
 
 .back-button {
   display: inline-block;
@@ -195,9 +211,17 @@
 
 <main>
   <h2 class="sim-title">Localizer Antenna Pattern Simulation</h2>
+  <div class="text-panel">
   <p class="sim-subtext">
-    This simulation illustrates the Localizer antenna pattern for an in-phase localizer antenna pair and the effect of antenna a-spacing. Due to Flash Player emulation limitations, the rotary knob for adjusting the phase input of the right antenna is not functional. So by default, the configuration can only represent an in-phase antenna pair, producing the CSB pattern. If the right antenna phase were adjustable by 180 degrees, a null would appear on the centerline, representing the SBO pattern. These phase relationships are managed through the antenna distribution system, which is not depicted in this simulation. Click and drag the green or blue dots (observation points) to view the individual antenna patterns and the resulting composite pattern. The simulation allows for a visual understanding of how antenna spacing and phase relationships affect the overall radiation pattern of the localizer system. 
+    This simulation illustrates the RF pattern (using an unmodulated carrier or Continuous Wave) for an in-phase localizer antenna pair and the effect of antenna a-spacing. You can click and drag the right antenna to widen the pair. 
   </p>
+  <p class="sim-subtext">
+  Due to Flash Player emulation limitations, the rotary knob for adjusting the transmission line electrical length of the right antenna is not functional. So by default, the configuration can only represent an in-phase antenna pair, producing the CSB pattern. If the right antenna phase were adjustable by 180 degrees, a null would appear on the centerline, representing the SBO pattern.
+  </p>
+  <p class="sim-subtext">
+  These phase relationships are managed through the antenna distribution unit and the length of the transmission lines. You can click and drag the green or blue dots (observation points) to view the individual antenna signals and the resulting composite signal that emerges when they "space modulate". See how they add or subtract depending on your location.
+  </p>
+  </div>
   <div class="ruffle-player">
     <embed src="Localizer_Antenna_Pattern.swf" width="100%" height="600" type="application/x-shockwave-flash" />
   </div>
